@@ -64,10 +64,10 @@ open class TagListView: UIView {
         }
     }
     
-    @IBInspectable open dynamic var cornerRadius: CGFloat = 0 {
+    @IBInspectable open dynamic var cornerRadiusForSubView: CGFloat = 0 {
         didSet {
             tagViews.forEach {
-                $0.cornerRadius = cornerRadius
+                $0.cornerRadius = cornerRadiusForSubView
             }
         }
     }
@@ -289,7 +289,7 @@ open class TagListView: UIView {
                 y: 0)
             tagBackgroundView.frame.size = tagView.bounds.size
             tagBackgroundView.layer.shadowColor = shadowColor.cgColor
-            tagBackgroundView.layer.shadowPath = UIBezierPath(roundedRect: tagBackgroundView.bounds, cornerRadius: cornerRadius).cgPath
+            tagBackgroundView.layer.shadowPath = UIBezierPath(roundedRect: tagBackgroundView.bounds, cornerRadius: cornerRadiusForSubView).cgPath
             tagBackgroundView.layer.shadowOffset = shadowOffset
             tagBackgroundView.layer.shadowOpacity = shadowOpacity
             tagBackgroundView.layer.shadowRadius = shadowRadius
@@ -336,7 +336,7 @@ open class TagListView: UIView {
         tagView.highlightedBackgroundColor = tagHighlightedBackgroundColor
         tagView.selectedBackgroundColor = tagSelectedBackgroundColor
         tagView.titleLineBreakMode = tagLineBreakMode
-        tagView.cornerRadius = cornerRadius
+        tagView.cornerRadius = cornerRadiusForSubView
         tagView.borderWidth = borderWidth
         tagView.borderColor = borderColor
         tagView.selectedBorderColor = selectedBorderColor
